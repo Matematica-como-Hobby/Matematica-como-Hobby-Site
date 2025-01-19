@@ -4,3 +4,6 @@ node_modules
 # next.js
 .next
 .env*
+
+# vscode
+.vscode
