@@ -1,0 +1,16 @@
+.neonButton {
+  @apply border-2 border-neon;
+
+  color: theme('colors.neon');
+}
+
+.neonButton:hover{
+  color: theme('colors.primary');
+  text-shadow: none;
+
+  box-shadow: 0 0 4em 0.5em theme('colors.neon');
+
+  background-color: theme('colors.neon');
+  transition: opacity 100ms linear;
+
+}

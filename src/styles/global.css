@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  @font-face {
+    font-family: 'Almendra';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/almendra/v26/H4ckBXKAlMnTn0CskxY9yL4.woff2) format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Poiret One';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/poiretone/v16/UqyVK80NJXN4zfRgbdfbo55cVw.woff2) format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Carattere';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/carattere/v7/4iCv6Kp1b9dXlgt_CkvjsGyN.woff2) format('woff2');
+  }
+  
+}
