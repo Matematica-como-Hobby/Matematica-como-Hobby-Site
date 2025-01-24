@@ -1,16 +1,18 @@
 .neonButton {
-  @apply border-2 border-neon;
-
-  color: theme('colors.neon');
+  @apply border-2;
+  color: var(--color-yelow-mth);
+  border-color: var(--color-yelow-mth);
 }
 
 .neonButton:hover{
-  color: theme('colors.primary');
+
+  color: var(--color-primary);
+
   text-shadow: none;
-
-  box-shadow: 0 0 4em 0.5em theme('colors.neon');
-
-  background-color: theme('colors.neon');
+  
+  box-shadow: 0 0 4em 0.5em var(--color-yelow-mth);
+  
+  background-color: var(--color-yelow-mth);
   transition: opacity 100ms linear;
 
 }
