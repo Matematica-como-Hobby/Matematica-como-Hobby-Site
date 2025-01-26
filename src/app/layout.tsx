@@ -9,7 +9,7 @@ export default function RootLayout({ children, } : { children : React.ReactNode 
   return (
     <html lang="en">
       <body className='bg-primary'>
-        <header className='flex flex-col text-white items-center w-full bg-green-mth py-4 px-20'>
+        <header className='relative flex z-[1] flex-col text-white items-center w-full bg-green-mth py-4 px-20'>
 
           <Image className="w-14" src={logo} alt="mth-logo"/>
           

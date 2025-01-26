@@ -1,10 +1,25 @@
 import Image from 'next/image';
 import card_oint from '@/public/card-oint.png'
+import elipse_home from '@/public/Ellipse_home.svg'
 
 import "@/styles/neon.css"
 
 export default function Page() {
-  return <main>
+  return <main >
+    <div className='absolute right-0 top-0 z-[0] w-3/4 sm:w-1/2 h-[120%] overflow-y-visible overflow-x-hidden'>
+      <svg width="482" height="631" viewBox="0 0 482 631" fill="none" xmlns="http://www.w3.org/2000/svg" className='rotate-103 w-svh h-3/5 2xl:ml-30'>
+        <rect width="480.883" height="630.205" transform="translate(0.394531 0.709053)" fill="url(#paint0_linear_224_11)" fillOpacity="0.66"/>
+        <defs>
+          <linearGradient id="paint0_linear_224_11" x1="480.062" y1="630.34" x2="-13.3505" y2="15.6409" gradientUnits="userSpaceOnUse">
+          <stop offset="0.12" stop-color="white" stop-opacity="0.08"/>
+          <stop offset="0.6" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+
+      <Image alt="elipse gradient" src={elipse_home} className='ml-100 mt-20'/>
+    </div>
 
     <div className='relative z-1 flex flex-col justify-center m-auto text-white text-center mt-20 sm:mt-32'>
       
