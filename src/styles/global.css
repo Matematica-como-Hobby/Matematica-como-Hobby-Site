@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #060D17;
+  --color-secundary: #212833;
   --color-green-mth: #0c6d67;
   --color-yelow-mth: #dddb77;
 }
@@ -34,7 +35,7 @@
   }
   
   @font-face {
-    font-family: 'Poiret One';
+    font-family: 'PoiretOne';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -48,5 +49,11 @@
     font-display: swap;
     src: url(https://fonts.gstatic.com/s/carattere/v7/4iCv6Kp1b9dXlgt_CkvjsGyN.woff2) format('woff2');
   }
-  
+  @font-face {
+    font-family: 'Playwrite';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/playwriteusmodern/v4/H4cMBWmRlMXPhla3hmMaveiYz8nSDkIFLNIYl2TXUwK62YohNg2G.woff2) format('woff2');
+  }
 }

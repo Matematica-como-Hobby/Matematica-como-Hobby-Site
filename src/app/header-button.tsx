@@ -15,13 +15,13 @@ export default function Headernavh(){
     <nav className={clsx(
       "max-lg:mt-6 max-lg:mb-2 lg:absolute right-10 lg:py-4",
       {
-        "max-lg:hidden": isOpen === true, 
-        "": isOpen === false, 
+        "max-lg:hidden": isOpen == false, 
+        "": isOpen == true, 
       }
 
       )}
     >
-      <div className='flex self-end gap-7 sm:gap-3' style={{fontFamily: "Poiret One"}}>
+      <div className='flex self-end gap-7 sm:gap-3 font-[PoiretOne]'>
         <a href='#' className='hover:bg-white/10 rounded px-7 py-1'>theme</a>
         <a href='#' className='hover:bg-white/10 rounded px-7 py-1'>docs</a>
         <a href='#' className='hover:bg-white/10 rounded px-7 py-1'>about</a>
