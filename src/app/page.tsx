@@ -10,8 +10,6 @@ import divider from '@/public/divider.png'
 import youtube from '@/public/social/youtube-white.svg'
 import discord from '@/public/social/discord-white.svg'
 
-
-
 export default function Page() {
   return <>
   <header className='relative flex z-[1] flex-col text-white items-center w-full bg-green-mth py-4 px-20'>
@@ -45,7 +43,7 @@ export default function Page() {
 
       <div className='flex gap-14 m-auto mt-10 h-11 sm:mt-32 sm:h-12'>
         <button className='neonButton rounded-md text-xs w-23 sm:w-32'>
-          ver livros
+          <a href='/books'>ver livros</a>
         </button>
 
         <button className='bg-white/10 rounded-md text-xs w-23 sm:w-32'>
@@ -98,9 +96,9 @@ export default function Page() {
         Livros Novos
       </h2>
 
-      <div className='absolute top-0 left-10 bg-white/10 text-sm px-5 py-2 rounded-sm'>
-        <p>ver livros</p>
-      </div>
+      <button className='absolute top-0 left-10 bg-white/10 text-sm px-5 py-2 rounded-sm'>
+        <a href='/books'>ver livros</a>
+      </button>
 
     </section>
 
