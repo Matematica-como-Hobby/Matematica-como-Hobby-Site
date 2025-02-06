@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import "@/styles/neon.css"
 import Socialcard from './social-card';
+import Headernavh from './header-button';
 
 import card_oint from '@/public/card-oint.png'
 import elipse_home from '@/public/Ellipse_home.svg'
@@ -9,8 +10,18 @@ import divider from '@/public/divider.png'
 import youtube from '@/public/social/youtube-white.svg'
 import discord from '@/public/social/discord-white.svg'
 
+
+
 export default function Page() {
-  return <main>
+  return <>
+  <header className='relative flex z-[1] flex-col text-white items-center w-full bg-green-mth py-4 px-20'>
+
+    <Image className="w-14" src={logo} alt="mth-logo"/>
+
+    <Headernavh />
+
+  </header>
+  <main>
     <div className='absolute right-0 top-0 z-[0] w-3/4 sm:w-1/2 h-[120%] overflow-y-visible overflow-x-hidden'>
       <svg width="482" height="631" viewBox="0 0 482 631" fill="none" xmlns="http://www.w3.org/2000/svg" className='rotate-103 w-svh h-3/5 2xl:ml-30'>
         <rect width="480.883" height="630.205" transform="translate(0.394531 0.709053)" fill="url(#paint0_linear_224_11)" fillOpacity="0.66"/>
@@ -118,4 +129,5 @@ export default function Page() {
     </div>
 
   </main>
+  </>
 }
