@@ -3,6 +3,8 @@ import "@/styles/neon.css"
 import Socialcard from './social-card';
 import Headernavh from './header-button';
 
+import { Docs, NeonLivros } from "./routerButtons"
+
 import card_oint from '@/public/card-oint.png'
 import elipse_home from '@/public/Ellipse_home.svg'
 import logo from '@/public/logo.png'
@@ -42,13 +44,8 @@ export default function Page() {
       <p className=" w-4/5 leading-8 mx-auto font-[Carattere] mt-10 sm:leading-10 md:text-xl md:mt-24 2xl:w-3/5 2xl:text-2xl 2xl:mt-32  ">A matemática, frequentemente percebida como uma disciplina desafiadora, pode se transformar em um hobby fascinante quando explorada por meio de  livros, resolução de problemas e a força da comunidade. Esses elementos inspiram os leitores a apreciar a beleza dos números e a lógica por trás das fórmulas. Resolver desafios matemáticos oferece um prazer único, estimulando tanto o raciocínio crítico quanto a criatividade. Assim, a matemática se revela não apenas uma ciência, mas uma emocionante jornada de descobertas e conexões.</p>
 
       <div className='flex gap-14 m-auto mt-10 h-11 sm:mt-32 sm:h-12'>
-        <button className='neonButton rounded-md text-xs w-23 sm:w-32'>
-          <a href='/books'>ver livros</a>
-        </button>
-
-        <button className='bg-white/10 rounded-md text-xs w-23 sm:w-32'>
-          docs
-        </button>
+          <NeonLivros/>
+          <Docs/>
 
       </div>
 
@@ -91,12 +88,12 @@ export default function Page() {
 
     </section>
 
-    <section className='relative font-[PoiretOne] text-white w-3/4 mx-auto h-[30em] border-b-2 my-20'>
+    <section className='relative font-[PoiretOne] text-white sm:w-3/4 mx-auto h-[30em] border-b-2 my-20'>
       <h2 className='text-center mt-4'>
         Livros Novos
       </h2>
 
-      <button className='absolute top-0 left-10 bg-white/10 text-sm px-5 py-2 rounded-sm'>
+      <button className='absolute top-0 left-5 sm:left-10 bg-white/10 text-sm px-5 py-2 rounded-sm'>
         <a href='/books'>ver livros</a>
       </button>
 
