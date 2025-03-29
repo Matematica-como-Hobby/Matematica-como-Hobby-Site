@@ -6,6 +6,7 @@ import Headernavh from './header-button';
 import { Docs, NeonLivros } from "./routerButtons"
 
 import card_oint from '@/public/card-oint.png'
+import down_image from '@/public/down_image.png'
 import elipse_home from '@/public/Ellipse_home.svg'
 import logo from '@/public/logo.png'
 import divider from '@/public/divider.png'
@@ -69,7 +70,7 @@ export default function Page() {
 
     </div>
 
-    <section className='text-white w-[90%] lg:w-[80%] xl:w-[60%] mx-auto my-35'>
+    {/* <section className='text-white w-[90%] lg:w-[80%] xl:w-[60%] mx-auto my-35'>
       <h2 className='text-center font-[Almendra] underline-offset-4  underline sm:text-xl  xl:text-2xl'>
         Matematica como hobby 
       </h2>
@@ -86,7 +87,9 @@ export default function Page() {
         </h3> 
       </div>
 
-    </section>
+    </section> */}
+
+    <Image src={down_image} alt="image pilastra" className='w-3/5 mx-auto'/>
 
     <section className='relative font-[PoiretOne] text-white sm:w-3/4 mx-auto h-[30em] border-b-2 my-20'>
       <h2 className='text-center mt-4'>
