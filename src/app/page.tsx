@@ -89,7 +89,7 @@ export default function Page() {
 
     </section> */}
 
-    <Image src={down_image} alt="image pilastra" className='w-3/5 mx-auto'/>
+    <Image src={down_image} alt="image pilastra" className='mt-10 sm:w-3/5 mx-auto'/>
 
     <section className='relative font-[PoiretOne] text-white sm:w-3/4 mx-auto h-[30em] border-b-2 my-20'>
       <h2 className='text-center mt-4'>
