@@ -1,13 +1,9 @@
-'use client'
-
-import { useRouter } from 'next/navigation'
-
 export function NeonLivros(){
-  const router = useRouter()
-
-  return <button className='neonButton rounded-md text-xs w-23 sm:w-32 cursor-pointer' onClick={() => router.push('/books')}>
-    <a>ver livros</a>
-  </button>
+  return <a href={`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`} className='neonButton flex rounded-md text-xs w-23 sm:w-32 cursor-pointer'>
+    <p className="m-auto">
+      ver livros
+    </p>
+  </a>
 }
 
 export function Docs(){
