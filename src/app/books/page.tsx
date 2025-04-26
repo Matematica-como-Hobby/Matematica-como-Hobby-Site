@@ -1,17 +1,16 @@
 import SearchIcon from '@mui/icons-material/Search';
+import { GetTopics, Topics } from 'app/books/main';
 
-export default function Page(){
+export default async function Page(request){
+
+  const topics = await GetTopics()
 
   return <main className='text-white'>
 
+    <div className='absolute w-svd '>
 
-    {/* <div className="bg-primary w-1/5 h-svh rounded-tr-xl z-1 flex flex-col font-[PoiretOne] text-sm z-1">
-      <a className='py-4 text-center' href="/">Home</a>
-      
-      
-      
-      </div> */}
-      
+    </div>
+
     <div className='fixed right-0 h-[47px] text-white items-center w-full h-[47px] flex place-content-between'>
       <div className="absolute top-0 w-full h-1/2 bg-secundary z-0 "/>
       
@@ -35,19 +34,12 @@ export default function Page(){
         <section className='py-10'>
           
           <p className='px-10 pb-8 text-md'> 
-          # Filter books
+            Filter books
           </p>
 
-          {/* need be dynamic */}
-          
           <div className='grid gap-5 w-3/4 ml-auto text-sm'>
-            <div>
-              set theory
-            </div>
-
-            <div>
-              logic
-            </div>
+            <Topics topics={topics}/>
+            
           </div>
         
         
