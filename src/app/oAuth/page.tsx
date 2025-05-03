@@ -27,5 +27,9 @@ export default function Page(){
     }
   })
   
-  return <></>
+  return <>
+    <div className="flex text-white h-dvh justify-center items-center font-[PoiretOne]">
+      Espere Alguns Segundos ...
+    </div>
+  </>
 }

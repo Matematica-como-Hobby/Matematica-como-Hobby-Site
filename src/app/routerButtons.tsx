@@ -1,5 +1,5 @@
 export function NeonLivros(){
-  return <a href={`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`} className='neonButton flex rounded-md text-xs w-23 sm:w-32 cursor-pointer'>
+  return <a href={'/books'} className='neonButton flex rounded-md text-xs w-23 sm:w-32 cursor-pointer'>
     <p className="m-auto">
       ver livros
     </p>
