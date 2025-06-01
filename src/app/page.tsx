@@ -88,18 +88,21 @@ export default function Page() {
       </div>
 
     </section> */}
-
     <Image src={down_image} alt="image pilastra" className='mt-10 sm:w-3/5 mx-auto'/>
 
-    <section className='relative font-[PoiretOne] text-white sm:w-3/4 mx-auto h-[30em] border-b-2 my-20'>
-      <h2 className='text-center mt-4'>
-        Livros Novos
-      </h2>
-
+    <section className='relative font-[PoiretOne] flex flex-col text-white sm:w-3/4 mx-auto h-[30em] border-b-2 my-20'>
       <button className='absolute top-0 left-5 sm:left-10 bg-white/10 text-sm px-5 py-2 rounded-sm'>
         <a href='/books'>ver livros</a>
       </button>
 
+      <h2 className='text-center mt-4'>
+        Livros Novos
+      </h2>
+
+      <div className='h-full mt-10 flex flex-row gap-10 overflow-x-auto overflow-y-hidden items-start justify-start'>
+        <img className='w-full h-full object-contain mx-auto p-6' src="https://camo.githubusercontent.com/96f62c374781ea5db7ad55fa8d35c7776c392b7461517cc4a3b68ae2dead9caa/68747470733a2f2f7777772e65647573702e636f6d2e62722f77702d636f6e74656e742f75706c6f6164732f323032342f30332f74656f7269615f646f735f636f6e6a756e746f732e6a7067"/>
+      </div>
+      
     </section>
 
     <div className='h-70 pt-15 pl-15 font-[PoiretOne] bg-secundary text-white lg:h-100 lg:pt-20 lg:pl-30'>

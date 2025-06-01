@@ -1,26 +1,22 @@
 import { Octokit } from "octokit";
-import { cookies } from 'next/headers';
 
-export async function GetTopics(){
-
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get('access_token').value;
+export async function GetTopics(authToken) {
 
   const octokit = new Octokit({auth : authToken})
 
   const query = await octokit.graphql(`
   query {
-      repository(owner:"${process.env.NEXT_PUBLIC_REPO_OWNER}", name:"Solucionarios" ) {
-        object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books") {
-          ... on Tree {
-                entries{
-                  name
-                  oid
-                  }
+    repository(owner:"${process.env.NEXT_PUBLIC_REPO_OWNER}", name:"Solucionarios" ) {
+      object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books") {
+        ... on Tree {
+              entries{
+                name
+                oid
+              }
+            }
           }
         }
       }
-    }
   `)
 
   const result = query.repository.object.entries
@@ -33,14 +29,14 @@ async function GetBookInfo(filter, name, octokit) {
 
   const data : any = await octokit.graphql(`
   query{
-      repository(owner: "${process.env.NEXT_PUBLIC_REPO_OWNER}", name: "Solucionarios") {
-        object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books/${filter}/${name}/config.json") {
-          ... on Blob {
+    repository(owner: "${process.env.NEXT_PUBLIC_REPO_OWNER}", name: "Solucionarios") {
+      object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books/${filter}/${name}/config.json") {
+        ... on Blob {
             text
+          }
         }
       }
     }
-  }
   `)
 
   if (!data.repository.object) {
@@ -51,11 +47,7 @@ async function GetBookInfo(filter, name, octokit) {
 
 }
   
-export async function GetBooks(oid, name, init, end){
-
-
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get('access_token').value;
+export async function GetBooks(oid, name, init, end, authToken) {
 
   const octokit = new Octokit({auth : authToken})
 

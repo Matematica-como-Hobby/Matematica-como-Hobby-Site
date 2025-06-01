@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import {encrypt} from "app/lib/session";
 
 export async function POST(request: Request) {
   const url = new URL(request.url)
@@ -19,11 +20,14 @@ export async function POST(request: Request) {
   
   
   const token = ( await res.json() ).access_token
+
   
   if (token){
     const response : NextResponse = NextResponse.redirect(new URL("/books", url));
     
-    response.cookies.set('access_token', token, {
+    const jwtToken = await encrypt(token)
+    
+    response.cookies.set('access_token', jwtToken, {
       httpOnly: true, // block the access of javascript
       secure: process.env.NODE_ENV === 'production', // only under https protocol
       sameSite: 'strict', // only work in matHobby site
