@@ -27,3 +27,19 @@
     transform: translateY(-15px);
   }
 }
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.react-pdf__Page__canvas {
+  background: transparent !important;
+}

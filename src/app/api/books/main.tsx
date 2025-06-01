@@ -10,18 +10,17 @@ export async function GetTopics(){
 
   const query = await octokit.graphql(`
   query {
-      repository(owner:"DaveAlSv", name:"Solucionarios" ) {
-        
-        object(oid : "a543374f79eadba5a8335af46247bafb06f7cec3") {
+      repository(owner:"${process.env.NEXT_PUBLIC_REPO_OWNER}", name:"Solucionarios" ) {
+        object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books") {
           ... on Tree {
-            entries{
-              name
-              oid
-              }
-            }
+                entries{
+                  name
+                  oid
+                  }
           }
         }
-        }
+      }
+    }
   `)
 
   const result = query.repository.object.entries
@@ -30,12 +29,12 @@ export async function GetTopics(){
 
 }
 
-async function GetBookInfo(path, octokit){
+async function GetBookInfo(filter, name, octokit) {
 
-  const data = await octokit.graphql(`
+  const data : any = await octokit.graphql(`
   query{
-      repository(owner: "DaveAlSv", name: "Solucionarios") {
-        object(expression: "${path}") {
+      repository(owner: "${process.env.NEXT_PUBLIC_REPO_OWNER}", name: "Solucionarios") {
+        object(expression: "${process.env.NEXT_PUBLIC_REPO_BRANCH}:books/${filter}/${name}/config.json") {
           ... on Blob {
             text
         }
@@ -44,13 +43,15 @@ async function GetBookInfo(path, octokit){
   }
   `)
 
-  
+  if (!data.repository.object) {
+    return null
+  }
   
   return JSON.parse(data.repository.object.text)
-  
+
 }
   
-export async function GetBooks(oid, name){
+export async function GetBooks(oid, name, init, end){
 
 
   const cookieStore = await cookies();
@@ -58,10 +59,9 @@ export async function GetBooks(oid, name){
 
   const octokit = new Octokit({auth : authToken})
 
-
   const query = await octokit.graphql(`
   query {
-      repository(owner:"DaveAlSv", name:"Solucionarios" ) {
+      repository(owner:"${process.env.NEXT_PUBLIC_REPO_OWNER}", name:"Solucionarios" ) {
         
         object(oid : "${oid}") {
           ... on Tree {
@@ -74,12 +74,33 @@ export async function GetBooks(oid, name){
     }
   `)
   
-  var Info = {}
+  const Info = {}
 
-  for (const element of query.repository.object.entries){
-    Info[element.name] = await GetBookInfo(`Development:books/${name}/${element.name}/config.json`, octokit)
+  if (!query.errors && query.repository.object) {
+
+    const entries = query.repository.object.entries.slice(init, end)
+
+    const books = await Promise.all(
+      entries.map(async (element) => {
+          const bookInfo = await GetBookInfo(name, element.name, octokit)
+
+          if (bookInfo !== null) {
+            return [element.name, bookInfo]
+          }
+          
+          return null
+        }
+      )
+    )
+
+    for (const item of books) {
+      if (item) {
+        Info[item[0]] = item[1]
+      }
+    }
+
   }
-  
-  return Info
+
+  return { info : Info, hasMore : query.repository.object.entries.length > end }
 
 }

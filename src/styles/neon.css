@@ -16,3 +16,14 @@
   transition: opacity 100ms linear;
 
 }
+.neonIcon {
+  @apply border-0;
+
+}
+
+.neonIcon:hover {
+  filter: drop-shadow(0 0 6px var(--color-yelow-mth));
+  color: var(--color-yelow-mth);
+  filter: drop-shadow(0 0 10px var(--color-yelow-mth));
+  transition: color 0.2s, filter 0.2s
+}
