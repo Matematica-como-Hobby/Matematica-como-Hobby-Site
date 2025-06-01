@@ -14,12 +14,11 @@ export async function middleware(req : NextRequest){
       }
 
     } catch {
-      return NextResponse.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`) // Redirect to GitHub OAuth if the token is invalid or expired
     }
   }
   
   
-  return NextResponse.redirect(req.nextUrl.origin ); // Redirect to the home page if the token is not have token
+  return NextResponse.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`) // Redirect to GitHub OAuth if the token is invalid or expired
 }
 
 export const config = {

@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   if (token){
     const response : NextResponse = NextResponse.redirect(new URL("/books", url));
     
-    const jwtToken = await encrypt(token)
+    const jwtToken = await encrypt({github_access_token : token})
     
     response.cookies.set('access_token', jwtToken, {
       httpOnly: true, // block the access of javascript
